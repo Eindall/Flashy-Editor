@@ -3,15 +3,15 @@ extends KinematicBody2D
 const MOVE_SPEED = 400
 const JUMP_FORCE = 1000
 const MAX_FALL_SPEED = 1000
-const GRAVITY = 50
+const GRAVITY = 60
 
-var y_velocity
+var y_velocity = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func _physics_process(delta):
+func _process(delta):
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
