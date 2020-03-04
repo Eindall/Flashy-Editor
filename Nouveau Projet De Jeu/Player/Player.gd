@@ -5,14 +5,22 @@ const JUMP_FORCE = 1000
 const MAX_FALL_SPEED = 1000
 const GRAVITY = 60
 
+enum Colors {PURPLE, PINK, BLUE}
+
 var y_velocity = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func _process(_delta):
+func _physics_process(_delta):
 	var move_dir = 0
+	if Input.is_action_pressed("turn_purple"):
+		$Sprite.modulate = Color("7e1ba2")
+	if Input.is_action_pressed("turn_pink"):
+		$Sprite.modulate = Color("1338b1")
+	if Input.is_action_pressed("turn_blue"):
+		$Sprite.modulate = Color("c302bc")
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
 	if Input.is_action_pressed("move_left"):
