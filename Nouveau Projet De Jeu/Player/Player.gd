@@ -22,10 +22,14 @@ func _process(_delta):
 	move_and_slide(Vector2(move_dir * MOVE_SPEED, y_velocity), Vector2(0, -1))
 	
 	var grounded = is_on_floor()
+	var walljump = is_on_wall()
 	y_velocity += GRAVITY
 	if grounded and Input.is_action_just_pressed("jump"):
+		y_velocity = -JUMP_FORCE
+	if walljump and Input.is_action_just_pressed("jump"):
 		y_velocity = -JUMP_FORCE
 	if grounded and y_velocity >= 0:
 		y_velocity = 5
 	if y_velocity > MAX_FALL_SPEED:
 		y_velocity = MAX_FALL_SPEED
+	
