@@ -1,4 +1,4 @@
-extends Panel
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -14,11 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_QuitButton_pressed():
-	get_tree().quit()
-
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://Level1.tscn")
