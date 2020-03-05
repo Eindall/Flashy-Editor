@@ -7,7 +7,7 @@ const GRAVITY = 60
 
 enum Colors {PURPLE, PINK, BLUE}
 
-signal change_color
+signal collided
 
 var velocity = Vector2(0, 0)
 var player_color = 'GREY'
@@ -39,6 +39,11 @@ func _physics_process(_delta):
 		
 	var result = move_and_slide(velocity, Vector2(0, -1))
 	velocity = result
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision and (collision.collider is TileMap):
+			emit_signal('collided', collision.collider)
 	
 	var grounded = is_on_floor()
 	var walljump = is_on_wall()
