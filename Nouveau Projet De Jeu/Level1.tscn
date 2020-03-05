@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tile/tileset.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level1.gd" type="Script" id=3]
 [ext_resource path="res://sprite/Editor.png" type="Texture" id=4]
+[ext_resource path="res://musics/BushWeek.ogg" type="AudioStream" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -127,7 +128,7 @@ cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 collision_layer = 2
 collision_mask = 2
 format = 1
-tile_data = PoolIntArray( 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 327686, 0, 0 )
+tile_data = PoolIntArray( 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262168, 0, 0, 327686, 0, 0, 327704, 0, 0, 393240, 0, 0, 458776, 0, 0, 524312, 0, 0, 589848, 0, 0, 655384, 0, 0 )
 
 [node name="PinkTile" type="TileMap" parent="."]
 tile_set = SubResource( 6 )
@@ -145,7 +146,7 @@ cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 collision_layer = 8
 collision_mask = 8
 format = 1
-tile_data = PoolIntArray( 262168, 0, 0, 327704, 0, 0, 393240, 0, 0, 458776, 0, 0, 524312, 0, 0, 589848, 0, 0, 655384, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 851979, 0, 0, 917515, 0, 0, 983051, 0, 0 )
+tile_data = PoolIntArray( 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 720907, 0, 0, 786443, 0, 0, 851979, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 917515, 0, 0, 917521, 0, 0, 983051, 0, 0, 983057, 0, 0 )
 
 [node name="Victory" type="TileMap" parent="."]
 tile_set = SubResource( 10 )
@@ -159,4 +160,8 @@ position = Vector2( 87.9547, 488.529 )
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 15
 collision_mask = 15
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]

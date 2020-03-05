@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/CIND.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Title screen/Title.gd" type="Script" id=2]
+[ext_resource path="res://musics/MotionBlur.ogg" type="AudioStream" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.235294, 0.105882, 0.368627, 1 )
@@ -105,5 +106,9 @@ text = "1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="Level Selection/Button" to="." method="_on_Button_pressed"]
